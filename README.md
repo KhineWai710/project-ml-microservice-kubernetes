@@ -1,32 +1,45 @@
-<include a CircleCI status badge, here>
+[![KhineWai710](https://circleci.com/gh/KhineWai710/project-ml-microservice-kubernetes.svg?style=svg)](https://app.circleci.com/pipelines/github/KhineWai710/project-ml-microservice-kubernetes)
 
-## Project Overview
+## Project Overvivew
+This project is simple project to operationalize a Machine Learning Microservice API. 
+Application is a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, 
+such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. 
 
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
+This project can easily run with Standalone, docker, Kubernetes.
+It also integrate with CircleCI.
 
-You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
+### Project Structure
+This is project sturcture.
+```
+.
+├── Dockerfile => setting of docker files
+├── Makefile => setting of make files
+├── README.md
+├── app.py   => sklearn
+├── get-pip.py
+├── make_prediction.sh => prediction script
+├── model_data
+│   ├── boston_housing_prediction.joblib
+│   └── housing.csv
+├── output_txt_files => log output files
+│   ├── docker_out.txt
+│   └── kubernetes_out.txt
+├── requirements.txt => necessaries installation
+├── run_docker.sh  => script to run docker
+├── run_kubernetes.sh => script to run kubernetes
+└── upload_docker.sh => script to update application to kubernetes
+```
 
-### Project Tasks
-
-Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
-* Test your project code using linting
-* Complete a Dockerfile to containerize this application
-* Deploy your containerized application using Docker and make a prediction
-* Improve the log statements in the source code for this application
-* Configure Kubernetes and create a Kubernetes cluster
-* Deploy a container using Kubernetes and make a prediction
-* Upload a complete Github repo with CircleCI to indicate that your code has been tested
-
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
-
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
-
----
 
 ## Setup the Environment
-
 * Create a virtualenv and activate it
+$make setup
+$source ~/.devops/bin/activate
+
 * Run `make install` to install the necessary dependencies
+$make install
+* Install docker
+* Install Kubernetes
 
 ### Running `app.py`
 
