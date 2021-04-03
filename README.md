@@ -27,7 +27,7 @@ This is project sturcture.
 ├── requirements.txt => necessaries installation
 ├── run_docker.sh  => script to run docker
 ├── run_kubernetes.sh => script to run kubernetes
-└── upload_docker.sh => script to update application to kubernetes
+└── upload_docker.sh => script to upload docker image to docker Hub
 ```
 
 
